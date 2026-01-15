@@ -10,6 +10,7 @@ def run_attack(encrypt_func, decrypt_func, message,
     successes = 0
     failures = 0
 
+    print(f"\n>>> Attacking '{label}':\n")
     for pw in password_list:
         result = decrypt_func(ciphertext, pw)
 
