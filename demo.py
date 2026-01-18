@@ -1,7 +1,3 @@
-from honey_encrypt import honey_encrypt, honey_decrypt
-from baseline import encrypt as base_encrypt, decrypt as base_decrypt
-from attack_sim import run_attack
-
 """
 Demonstration of Honey Encryption vs traditional encryption
 
@@ -11,6 +7,12 @@ Structure:
 - Run the attack simulation and display results
 
 """
+
+from honey_encrypt import honey_encrypt, honey_decrypt
+from baseline import encrypt as base_encrypt, decrypt as base_decrypt
+from attack_sim import run_attack
+
+
 # -----------------------------
 # Demo params
 # -----------------------------
@@ -80,6 +82,7 @@ def main():
     print("  BRUTE-FORCE ATTACK SIMULATION")
     print("==============================")
 
+    # Traditional Encryption
     run_attack(
         encrypt_func=base_encrypt,
         decrypt_func=base_decrypt,
@@ -89,6 +92,7 @@ def main():
         label="Traditional Encryption"
     )
 
+    # Honey Encryption
     run_attack(
         encrypt_func=honey_encrypt,
         decrypt_func=honey_decrypt,

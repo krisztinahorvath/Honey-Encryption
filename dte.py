@@ -1,25 +1,11 @@
 """
 Implements a simplified Distribution-Transforming Encoder (DTE).
 
-This file should:
-- Map each valid message to a unique numeric range.
-- Define a TOTAL_RANGE covering all messages.
-- Provide deterministic encode() and decode() functions:
-    - encode(message) -> (low, high)
-    - decode(value) -> message
-
 The goal is that *any* numeric value in TOTAL_RANGE decodes
 to a valid, plausible message.
 This is an educational DTE, not a cryptographically secure one.
 """
 
-
-# TODO:
-# [ ] Import message_space.get_all_messages
-# [ ] Assign numeric ranges to each message
-# [ ] Define TOTAL_RANGE
-# [ ] Implement encode() and decode()
-# [ ] Ensure deterministic behavior
 
 from message_space import get_all_messages
 
@@ -32,7 +18,7 @@ if not ALL_MESSAGES:
 
 # We assign each message a fixed-size numeric bucket/range.
 # Bigger BUCKET_SIZE => bigger TOTAL_RANGE (more room).
-BUCKET_SIZE = 1000  # you can change this, but keep it constant
+BUCKET_SIZE = 1000
 
 # TOTAL_RANGE must cover all messages
 TOTAL_RANGE = len(ALL_MESSAGES) * BUCKET_SIZE

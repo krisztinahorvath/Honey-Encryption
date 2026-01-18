@@ -3,23 +3,20 @@ Traditional password-based encryption to compare with Honey Encryption
 """
 
 
-# TODO:
-# [ ] Implement simple password-based encryption
-# [ ] Wrong password should clearly fail
-# [ ] Keep logic simple
-
-HEADER = b"HDR:"  # known prefix to detect wrong passwords
+HEADER = b"HDR:"  # Known prefix to detect wrong passwords
 
 
 def _xor_bytes(data, key):
-    """XOR data with a repeating key"""
+    """
+    XOR data with a repeating key
+    """
     return bytes(b ^ key[i % len(key)] for i, b in enumerate(data))
 
 
 def encrypt(message, password):
     """
-    Encrypt a message with a password using XOR.
-    Returns bytes.
+    Encrypt a message with a password using XOR
+    Returns bytes
     """
     if not password:
         raise ValueError("Password cannot be empty")
@@ -32,8 +29,8 @@ def encrypt(message, password):
 
 def decrypt(ciphertext, password):
     """
-    Decrypt ciphertext with a password.
-    Returns plaintext string or None if password is wrong.
+    Decrypt ciphertext with a password
+    Returns plaintext string or None if password is wrong
     """
     if not password:
         raise ValueError("Password cannot be empty")
